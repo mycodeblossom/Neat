@@ -1,22 +1,42 @@
 {{!< default}}
 
-<main class="site-main">
+<main class="site-main post-container">
+
+    {{!-- Left sidebar --}}
+    <div id="side-navigation">
+        {{> categories-nav}}
+    </div>
 
     {{#post}}
 
     <article class="{{post_class}}">
 
         <header class="gh-article-header gh-canvas">
-            <h1 class="gh-article-title">{{title}}</h1>
+            {{!-- <h1 class="gh-article-title">{{title}}</h1> --}}
+
+            {{!-- Title --}}
+            <h1 class="gh-article-title">
+                {{#has tag="#category,#subcategory"}}
+                    {{content}}
+                {{else}}
+                    {{title}}
+                {{/has}}
+            </h1>
+
             <div class="post-meta">
                 Last updated on&nbsp;
                 <time datetime="{{date format="YYYY-MM-DD"}}">{{date updated_at}}</time>
             </div>
-            {{> "post-image"}}
+            {{!-- {{> "post-image"}} --}}
         </header>
 
-        <div class="gh-content gh-canvas">
-            {{content}}
+        <div class="gh-content gh-canvas post-content">
+            {{!-- {{content}} --}}
+            {{#has tag="#subcategory,#category"}}
+                {{> subcategory-posts limitSize="all"}}
+            {{else}}
+                {{content}}
+            {{/has}}
         </div>
 
         <div class="pagination-container gh-canvas">
@@ -26,7 +46,11 @@
                 {{#prev_post}}
                     <a class="newer-posts" href="{{url}}">
                         <span class="pagination-label">Previous</span>
-                        {{title}}
+                        {{#has tag="#category,#subcategory"}}
+                            {{content}}
+                        {{else}}
+                            {{title}}
+                        {{/has}}
                     </a>
                 {{/prev_post}}
             </div>
@@ -35,7 +59,11 @@
                 {{#next_post}}
                     <a class="older-posts" href="{{url}}">
                         <span class="pagination-label">Next</span>
-                        {{title}}
+                        {{#has tag="#category,#subcategory"}}
+                            {{content}}
+                        {{else}}
+                            {{title}}
+                        {{/has}}
                     </a>
                 {{/next_post}}
             </div>
@@ -53,4 +81,50 @@
 
     {{/post}}
 
+    {{!-- TOC --}}
+    <aside class="toc-container">
+        <div class="toc"></div>
+    </aside>
 </main>
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible-header");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+
+<!-- Prism.js -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-python.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-java.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-bash.min.js"></script>
+
+<!-- TOC-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.13.4/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        tocSelector: '.toc',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3',
+        hasInnerContainers: true,
+        headingsOffset: 100,
+        scrollSmoothOffset: -100,
+        scrollSmoothDuration: 420
+    });
+</script>

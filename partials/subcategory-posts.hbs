@@ -1,0 +1,21 @@
+{{!-- List posts for sub-category --}}
+<div class="topic-article-feed sub-category-posts">
+{{#get "posts" order="published_at desc" filter="tag:{{title}}" include="tags" limit=limitSize
+    as |article|}}
+    
+        {{#foreach article}}
+                <h4 class="topic-article-title">
+                    <a class="topic-article-link" href="{{url}}">
+                        <i class="topic-article-icon icon icon-chevron-right"></i>
+                        
+                        {{#has tag="#subcategory"}}
+                            {{content}}
+                        {{else}}
+                            {{title}}
+                        {{/has}}
+                       
+                    </a>
+                </h4>
+        {{/foreach}}
+{{/get}}
+</div>

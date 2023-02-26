@@ -1,0 +1,22 @@
+{{#get "posts"  order="title asc" filter="tag:{{title}} + tag:hash-subcategory" include="authors,tags" as |subcategory|}} 
+    {{#foreach subcategory}}
+    {{!-- Sub-category header --}}
+        <div class="sub-category-header">
+            <h3 class="topic-article-title">
+                <a class="topic-article-link" href="{{url}}">
+                    <i class="topic-article-icon icon icon-chevron-right"></i>{{content}}
+                </a>
+            </h3>
+
+            {{#get "tags" filter="slug:{{title}}" limit="1" include="count.posts"}}
+                {{#foreach tags}}
+                    <a class="topic-more button-arrow button-arrow-right" id="{{title}}" href="{{url absolute="true"}}">View all ({{count.posts}}) →</a>
+                {{/foreach}}
+            {{/get}}
+
+        </div>
+        {{!-- List posts for sub-category --}}
+        {{> subcategory-posts limitSize="4"}}
+                              
+    {{/foreach}}
+{{/get}}

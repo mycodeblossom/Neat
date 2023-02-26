@@ -1,14 +1,14 @@
 .topic-feed {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px 60px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px 30px;
 }
 
 .topic-header {
     display: flex;
-    padding-bottom: 12px;
     margin-bottom: 20px;
-    border-bottom: 1px solid var(--mid-gray-color);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--mid-gray-color);
 }
 
 .topic-name {
@@ -53,7 +53,7 @@
 
 .topic-more {
     display: inline-block;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     font-weight: 700;
     color: var(--primary-color);
     letter-spacing: -0.005em;

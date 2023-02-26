@@ -1,0 +1,229 @@
+/* ---------------- Custom---------------------------------------------- */
+ /* Side navigation */
+ .post-container{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+ }
+ @media (max-width: 900px) {
+    #side-navigation{
+        display: none;
+    }
+
+    .post-container{
+        display: block;
+    }
+}
+
+@media (min-width: 900px) {
+    #side-navigation{
+        display: block;
+    }
+}
+
+
+.topic-header-nav {
+    display: flex;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--mid-gray-color);
+}
+
+.topic-name-nav {
+    margin-bottom: 0;
+    margin-top: 7px;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+
+.category-image-nav{
+    height: 32px;
+    width: 32px;
+    margin-right: 15px;
+}
+
+.topic-article-link-nav{
+    display: flex;
+    padding: 2px 0;
+    color: var(--primary-text-color);
+}
+
+.sub-category-header-nav{
+    margin-left: 30px;
+}
+
+/* TOC */
+.toc-container {
+    position: sticky;
+    /* display: block; */
+    top: 140px;
+    align-self: start;
+}
+
+/* Custom post content */
+:root{
+
+    --alert-protip-background-color: hsl(103, 44%, 89%);
+    --alert-protip-color: hsl(121, 33%, 35%);
+    --alert-protip-strong-color: hsl(121, 32%, 25%);
+    --alert-protip-code-color: #fdf6e3;
+
+    --alert-warning-color: #856404;
+    --alert-warning-background-color: #fff3cd;
+    --alert-warning-strong-color: #533f03;
+
+    --green-background-color: hsl(103, 44%, 89%);
+
+    --img-blend-mode: none;
+
+    --code-background-color: #f9f2f4;
+    --code-color: #db1348;
+    --code-border-color: rgba(145,0,30,.16);
+}
+
+.dark-mode{
+    --green-background-color: hsl(72, 60%, 22%);
+
+    --alert-protip-background-color: hsl(72, 60%, 10%);
+    --alert-protip-color: hsl(72, 40%, 53%);;
+    --alert-protip-strong-color: hsl(72, 43%, 71%);
+    --alert-protip-code-color: hsl(72, 60%, 7%);
+
+    --alert-warning-background-color: hsl(41, 63%, 28%);
+    --alert-warning-color: hsl(45, 94%, 89%);
+    --alert-warning-strong-color: hsl(45, 93%, 89%);
+
+
+    --ing-blend-mode: screen;
+
+    --code-color: hsl(344, 84%, 77%);
+
+}
+
+/* Alert warning */
+.alert-warning {
+    color: var(--alert-warning-color);
+    background-color: var(--alert-warning-background-color);
+
+    padding-left: 4px;
+    border-radius: 15px;
+    padding: 20px;
+}
+.alert-warning > strong {
+    color: var(--alert-warning-strong-color);
+}
+.alert {
+    margin-left: 15px;
+    color: #856404;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.alert:hover {
+    color: white;
+}
+
+/* Alert protip */
+.alert-protip{
+    color: var(--alert-protip-color);
+    background-color: var(--alert-protip-background-color);
+    border-radius: 15px;
+    padding: 20px;
+}
+.alert-protip > strong {
+    color: var(--alert-protip-strong-color);
+    font-weight: 700;
+}
+.alert-protip > .alert {
+    color: var(--alert-protip-strong-color);
+}
+.alert-protip > pre {
+    overflow-x: auto;
+    background-color: var(--alert-protip-code-color);
+}
+
+/* Strong code */
+p code{
+    font-size: 14px;
+    background-color: var(--code-background-color);
+    border-radius: 3px;
+    padding: 2px 7px;
+    color: var(--code-color);
+    border-color: var(--code-border-color);
+    border-width: 1px;
+    border-style: solid;
+}
+
+/* Result */
+pre {
+    overflow-x: scroll;
+}
+
+/* Striped table */
+.table-striped > tbody > tr:nth-child(2n+1) {
+    background-color: var(--table-stripe-color);
+}
+
+.table thead {
+    border-bottom: 1px solid var(--primary-text-color);
+    vertical-align: bottom;
+    background-color: var(--table-header);
+}
+
+.table th,tr,td{
+    border: none;
+}
+.table th,td{
+    text-align: right;
+}
+
+.table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    word-break: normal;
+    border:none;
+}
+
+/* Collapsible */
+.collapsible-header {
+    background:none;
+    color: var(--link-color);
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: 1px solid var(--mid-gray-color);
+    text-align: left;
+    outline: none;
+  }
+  
+  .active, .collapsible-header:hover {
+    color: var(--primary-color);
+  }
+  
+  .collapsible-header::before {
+    content: '\002B';
+    color: var(--primary-color);
+    font-weight: bold;
+    float: left;
+    margin-right: 8px;
+  }
+  
+  .active::before {
+    content: "\2212";
+  }
+  
+  .collapsible-body {
+    border: 1px solid var(--mid-gray-color);
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background: none;
+    margin-top: 0px;
+  }

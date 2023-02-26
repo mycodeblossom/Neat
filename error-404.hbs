@@ -1,0 +1,19 @@
+{{!< default}}
+
+{{!--
+404 Page Not Found error page
+
+The 404 error is the most common error that a visitor might see, for example when
+following a broken link
+
+Keep this template as lightweight as you can!
+--}}
+
+
+<div class="error-container">
+    <section class="error">
+        <h1 class="error-code">{{statusCode}}</h1>
+        <p class="error-description">{{message}}</p>
+        <a class="error-link" href="{{@site.url}}">Go to the front page →</a>
+    </section>
+</div>

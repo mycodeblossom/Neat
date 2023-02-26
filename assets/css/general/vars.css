@@ -13,4 +13,52 @@
     --black-color: #000;
     --animation-base: ease-in-out;
     --h1-size: 3.8rem;
+
+
+    --darker-gray-color: #333333ff;
+    --darker-mid-gray-color: #999;
+    --dark-orange-muted: #3f3a2cff;
+    --light-orange-color: #fdf6e3;
+
+    --secondary-text-color: hsl(0,0,55);
+    --background-color: var(--white-color);
+    --header-color: var(--dark-gray-color);
+    --link-color: var(--dark-gray-color);
+    --secondary-background-color: var(--lighter-gray-color);
+
+    --table-stripe-color: var(--lighter-gray-color);
+    --table-header: var(--background-color);
+    --code-background-color: var(--light-orange-color);
+    --image-blend-mode: multiply;
+}
+
+.dark-mode{
+
+    /* Color pallette */
+    --red-bg-color:#9b423c;
+    --green-bg-color:#627653ff;
+    --yellow-bg-color: #856f0d;
+    --light-blue-bg-color: #4d8888ff;
+    --red-txt-color: #f54545;
+    --green-txt-color:#9fdb45;
+    --yellow-txt-color: #d4ba22;
+
+    --mid-gray-color: #b8b8b8;
+    --color-lighter-gray:#1a1a1a;
+    --color-darker-gray: #b8b8b8;
+    --color-white: hsl(0, 0%, 13%);
+     /* hsl(0,0,55); */
+    /* --mid-gray-color: hsl(0,0,30); */
+    /* --background-color: var(--dark-gray-color); */
+    --background-color:  hsl(0, 0%, 13%);
+    --header-color: var(--light-gray-color);
+    --link-color: var(--mid-gray-color);
+    --secondary-background-color: var(--darker-gray-color);
+    --primary-text-color: var(--light-gray-color);
+    --table-stripe-color: var(--darker-gray-color);
+    --table-header: var(--background-color);
+    --code-background-color: var(--dark-orange-muted);
+    --secondary-text-color: var(--mid-gray-color);
+    --image-blend-mode: screen;
+    /* --link-color: hsl(0,0,50); */
 }

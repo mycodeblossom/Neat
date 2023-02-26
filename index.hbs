@@ -3,10 +3,52 @@
 <div class="gh-outer">
 <main class="site-main gh-inner">
 
+    {{!-- Short site description --}}
+    <h1 class="site-description">{{@site.description}}</h1>
+
+
+    {{!-- Categories --}}
+    {{#get "posts" order="title asc" filter="tag:hash-category" include="authors,tags" as |category|}}
+            <div class="topic-feed">
+                {{!-- List of categories --}}
+                {{#foreach category}}
+                    <section class="topic">
+
+                        {{!-- Category title --}}
+                        <header class="topic-header">
+                            {{#if feature_image}}
+                            <img class="category-image" src="{{feature_image}}" alt="{{content}}" height="40px" width="40px">
+                            {{/if}}
+                            <h2 class="topic-name col-10">{{content}}</h2>
+                        </header>
+
+                        {{!-- List of sub-categories --}}
+                        {{> subcategories}}
+
+                        {{!-- List of posts in main category --}}
+                        {{#get "posts" order="published_at desc" filter="tag:{{title}} + tag:-'hash-subcategory'"
+                            limit="4" as |article|}}
+                            <div class="topic-article-feed u-plain-list category-posts">
+                                {{#foreach article}}
+                                        <h4 class="topic-article-title">
+                                            <a class="topic-article-link" href="{{url}}">
+                                                <i class="topic-article-icon icon icon-chevron-right"></i>{{title}}
+                                            </a>
+                                        </h4>
+                                {{/foreach}}
+                            </div>
+                        {{/get}}
+
+                    </section>
+                {{/foreach}}
+            </div>
+    {{/get}}
+
     {{#if @custom.show_featured_posts}}
         {{> "featured-posts"}}
     {{/if}}
 
+    <p>Before</p>
     {{#get "tags" limit="all"}}
     <div class="topic-feed">
 

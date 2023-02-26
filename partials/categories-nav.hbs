@@ -1,0 +1,35 @@
+{{#get "posts" order="title asc" filter="tag:hash-category" include="authors,tags" as |category|}}
+            {{!-- List of categories --}}
+            {{#foreach category}}
+                <section class="">
+
+                    {{!-- Category title --}}
+                    <header class="topic-header-nav">
+                        {{#if feature_image}}
+                        <img class="category-image-nav" src="{{img_url feature_image}}">
+                        {{/if}}
+
+                        <h2 class="topic-name-nav col-10">
+                            <a class="topic-article-link-nav" href="{{url}}">
+                               {{content}}
+                            </a>
+                        </h2>
+                    </header>
+
+                    {{!-- List of sub-categories --}}
+                    {{#get "posts"  order="primary_tag desc" filter="tag:{{title}} + tag:hash-subcategory" include="authors,tags" as |subcategory|}} 
+                        {{#foreach subcategory}}
+                        {{!-- Sub-category header --}}
+                            <div class="sub-category-header-nav">
+                                <h3 class="topic-article-title">
+                                    <a class="topic-article-link-nav" href="{{url}}">
+                                        <i class="topic-article-icon icon icon-chevron-right"></i>{{content}}
+                                    </a>
+                                </h3>
+                            </div>
+                        {{/foreach}}
+                    {{/get}}
+
+                </section>
+            {{/foreach}}
+{{/get}}
