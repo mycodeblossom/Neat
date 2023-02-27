@@ -2,7 +2,7 @@
  /* Side navigation */
  .post-container{
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 1fr minmax(10px, 20%);
     max-width: var(--container-max-width);
     margin-left: auto;
     margin-right: auto;
