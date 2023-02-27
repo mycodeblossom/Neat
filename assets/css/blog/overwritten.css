@@ -22,7 +22,9 @@ h6 {
     font-weight: 700;
 }
 
-.gh-inner{max-width:1600px;}
+.gh-inner{
+    max-width: var(--container-max-width);
+}
 
 .is-head-left-logo .gh-head-inner {
     grid-template-columns: 1fr 1fr auto;

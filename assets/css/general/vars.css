@@ -30,6 +30,9 @@
     --table-header: var(--background-color);
     --code-background-color: var(--light-orange-color);
     --image-blend-mode: multiply;
+
+
+    --container-max-width: calc(83% + 8vw);
 }
 
 .dark-mode{

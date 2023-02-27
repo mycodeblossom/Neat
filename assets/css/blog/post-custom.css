@@ -3,7 +3,7 @@
  .post-container{
     display: grid;
     grid-template-columns: auto 1fr auto;
-    max-width: 1600px;
+    max-width: var(--container-max-width);
     margin-left: auto;
     margin-right: auto;
  }
