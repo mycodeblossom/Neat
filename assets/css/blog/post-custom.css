@@ -50,6 +50,12 @@
     color: var(--primary-text-color);
 }
 
+.topic-article-link-nav svg {
+    height: 16px;
+    margin: 3px 5px 0 -5px;
+    width: 16px;
+  }
+
 .sub-category-header-nav{
     margin-left: 30px;
 }
