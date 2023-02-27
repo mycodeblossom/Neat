@@ -194,11 +194,25 @@
 function changeTheme(theme) {
     document.documentElement.classList.add('color-theme-in-transition');
 
-changePrismStyle(theme)
+    changePrismStyle(theme)
 
     setUserPreferenceTheme(theme);
     toggleDarkThemeInBody();
     toggleThemeIcons();
+
+    //Change style for members section and comments
+    var commentsRoot = document.getElementById("ghost-comments-root");
+    if(commentsRoot && commentsRoot.children && commentsRoot.children.length > 0){
+        var iframeEl = commentsRoot.children[0];
+        if(iframeEl){
+            const membersSection = iframeEl.contentWindow.document.getElementsByClassName("ghost-display");
+            if(membersSection && membersSection.length > 0){
+                membersSection[0].classList.toggle("dark");
+            }
+        }
+
+    }
+
 
     window.setTimeout(function() {
          document.documentElement.classList.remove('color-theme-in-transition')},

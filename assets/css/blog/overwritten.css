@@ -26,6 +26,22 @@ h6 {
     font-weight: 700;
 }
 
+/* .gh-canvas {
+    display: grid;
+    grid-template-columns: 
+    [full-start] minmax(var(--gap),auto) 
+    [wide-start] minmax(auto,calc((var(--container-width, 1200px) - var(--content-width, 720px))/2)) 
+    [main-start] min(var(--content-width,720px),calc(100% - var(--gap)*2)) 
+    [main-end] minmax(auto,calc((var(--container-width, 1200px) - var(--content-width, 720px))/2)) 
+    [wide-end] minmax(var(--gap),auto) 
+    [full-end];
+} */
+
+.gh-canvas > * {
+    grid-column: wide-start/wide-end;
+    padding: 0 20px;
+}
+
 .gh-inner{
     max-width: var(--container-max-width);
 }
