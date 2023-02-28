@@ -36,7 +36,7 @@
                 </a>
             </div>
             {{!-- Search button mobile--}}
-            <button class="gh-search gh-icon-btn" data-ghost-search>{{> "icons/search"}}</button>
+            <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
             {{!-- Theme icons mobile--}}
             <button class="gh-icon-btn theme-icon" id="dark-theme-icon-mobile" onclick="changeTheme('dark')" aria-label="Change to dark theme">
                 <img class="logo-image" src="{{asset 'assets/icons/moon.svg'}}" alt="Dark theme" height="35px" width="35px">
@@ -52,7 +52,7 @@
             {{navigation}}
             {{#unless @site.members_enabled}}
                 {{#match @custom.navigation_layout "Stacked"}}
-                    <button class="gh-search gh-icon-btn" data-ghost-search>{{> "icons/search"}}</button>
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
                 {{/match}}
             {{/unless}}
 
@@ -91,10 +91,10 @@
         <div class="gh-head-actions">
             {{#unless @site.members_enabled}}
                 {{^match @custom.navigation_layout "Stacked"}}
-                    <button class="gh-search gh-icon-btn" data-ghost-search>{{> "icons/search"}}</button>
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
                 {{/match}}
             {{else}}
-                <button class="gh-search gh-icon-btn" data-ghost-search>{{> "icons/search"}}</button>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
 
             {{!-- Theme icons --}}
             <button class="gh-icon-btn theme-icon" id="dark-theme-icon" onclick="changeTheme('dark')" aria-label="Change to dark theme">
