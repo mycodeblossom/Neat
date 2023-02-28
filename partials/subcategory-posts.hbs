@@ -5,15 +5,24 @@
     
         {{#foreach article}}
                 <h4 class="topic-article-title">
-                    <a class="topic-article-link" href="{{url}}">
-                        <i class="topic-article-icon icon icon-chevron-right"></i>
+                    <a class="topic-article-link" href="{{url}}"> 
                         
+                        {{!-- Post title                  --}}
                         {{#has tag="#subcategory"}}
                             {{content}}
                         {{else}}
                             {{title}}
                         {{/has}}
-                       
+
+                        {{!-- Featured icon --}}
+                        {{#if @custom.show_featured_posts}}
+                            {{#if featured}}
+                                {{#if @custom.featured_post_icon}}
+                                    <img  class="featured-icon" src="{{@custom.featured_post_icon}}" alt="featured icon">
+                                {{/if}}
+                            {{/if}}
+                        {{/if}}
+
                     </a>
                 </h4>
         {{/foreach}}

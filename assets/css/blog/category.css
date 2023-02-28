@@ -85,3 +85,13 @@
     display: block;
 }
 
+.featured-icon{
+    height: 2.3rem;
+    padding: 0px 8px;
+}
+
+.featured-icon-post{
+    height: 4rem;
+    padding: 0px 8px;
+}
+

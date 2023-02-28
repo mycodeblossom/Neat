@@ -16,11 +16,22 @@
 
             {{!-- Title --}}
             <h1 class="gh-article-title">
+
+                {{!-- Post title text --}}
                 {{#has tag="#category,#subcategory"}}
                     {{content}}
                 {{else}}
                     {{title}}
                 {{/has}}
+
+                {{!-- Featured icon --}}
+                {{#if @custom.show_featured_posts}}
+                    {{#if featured}}
+                        {{#if @custom.featured_post_icon}}
+                            <img  class="featured-icon-post" src="{{@custom.featured_post_icon}}" alt="featured icon">
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
             </h1>
 
             <div class="post-meta">

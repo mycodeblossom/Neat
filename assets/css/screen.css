@@ -18,5 +18,5 @@
 @import "blog/category.css";
 @import "blog/error.css";
 @import "misc/utilities.css";
-@import "misc/owl.css";
+/* @import "misc/owl.css"; */
 @import "blog/overwritten.css";
