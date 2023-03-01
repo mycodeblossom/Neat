@@ -1,0 +1,24 @@
+<section class="cookie">
+   <div class="txt">
+       <p>
+        By using <strong>{{@site.title}}</strong>, you agree to our <a href="{{@custom.privacy_url}}" target="_blank">Cookie Policy.</a>
+       </p>
+   </div>
+   <div>
+       <a class="btn accept" href="javascript:hideCookieAlert();">Accept</a>
+   </div>
+</section>
+<script data-cfasync="false" type="text/javascript">
+    var cookiesAccepted = localStorage.getItem("cookiesAccepted");
+    if(cookiesAccepted){
+        hideCookieAlert();
+    }
+function hideCookieAlert(){
+    var cookieAlert = document.getElementsByClassName("cookie");
+    if(cookieAlert.length > 0){
+        cookieAlert[0].classList.add("hidden");
+        cookieAlert[0].classList.remove("cookie");
+        localStorage.setItem("cookiesAccepted", true);
+    }
+}
+</script>

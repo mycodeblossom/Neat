@@ -154,6 +154,11 @@
         {{{body}}}
     </div>
 
+    {{!-- Cookie consent alert --}}
+    {{#if @custom.privacy_url}}
+        {{> cookie-consent}}
+    {{/if}}
+
     <footer class="gh-foot gh-outer">
         <div class="gh-foot-inner gh-inner">
             <div class="gh-copyright">

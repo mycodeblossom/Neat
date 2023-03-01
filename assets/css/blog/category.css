@@ -95,3 +95,40 @@
     padding: 0px 8px;
 }
 
+
+/* Cookie consent alert */
+.cookie{
+    display: inline;
+    background-color: var(--background-color);
+    position: fixed;
+    bottom: 30px;
+    border-radius: 10px;
+	right: 190px;
+	padding: 10px 20px;
+
+    border: 1px solid var(--primary-color);
+}
+
+.cookie .txt{
+	float: left;
+    margin-right: 20px;
+    color:var(--primary-text-color);
+    margin-top: 4px;
+}
+
+.cookie .txt a{
+    color: var(--primary-color);
+}
+
+.cookie .accept {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-radius: 32px;
+    padding: 3px 23px;
+    font-size: 19px;
+    border: none;
+    word-break: keep-all;
+}
+.cookie .accept:hover {
+	background-color: var(--primary-color);
+}

@@ -68,6 +68,11 @@
                 "default": true,
                 "group": "homepage"
             },
+            "privacy_url": {
+                "type": "text",
+                "group": "homepage",
+                "default": "/privacy"
+            },
             "featured_post_icon": {
                 "type": "image"
             }
