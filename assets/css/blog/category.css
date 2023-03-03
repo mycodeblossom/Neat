@@ -5,6 +5,14 @@
     align-items: center;
 }
 
+
+.sub-category-header .topic-article-title, .sub-category-header-nav .topic-article-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 5px;
+}
+
 .sub-category-posts {
     list-style-type: none;
     margin: 0 0 0 20px;
