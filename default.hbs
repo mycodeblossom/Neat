@@ -10,13 +10,13 @@
     {{ghost_head}}
 
     <!-- Prism.js -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/toolbar/prism-toolbar.min.css" />
-    <!-- themes:  https://cdnjs.com/libraries/prism -->
-    <link id="prism-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-solarizedlight.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css" integrity="sha512-Dqf5696xtofgH089BgZJo2lSWTvev4GFo+gA2o4GullFY65rzQVQLQVlzLvYwTo0Bb2Gpb6IqwxYWtoMonfdhQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <!-- themes:  https://cdnjs.com/libraries/prism -->   
+    <link id="prism-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-solarizedlight.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- TOC -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.13.4/tocbot.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.20.1/tocbot.min.css" integrity="sha512-a/fdL49R0f7ZkWXAaVeKvAoIQYcc90fqoAv0aZnfSDD5onvu8Z1QEiiulgDlNVp2x1B9H+WkxtsGLeZkk1gYGw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="{{body_class}}{{block "body_class"}}  is-head-{{#match @custom.navigation_layout "Logo on the left"}}left-logo{{else match @custom.navigation_layout "Logo in the middle"}}middle-logo{{else}}stacked{{/match}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Elegant serif"}} has-serif-body{{/match}}">
@@ -45,7 +45,7 @@
                 <img class="logo-image" src="{{asset 'assets/icons/sun.svg'}}" alt="Light theme" height="35px" width="35px">
             </button>
             {{!-- Menu button mobile --}}
-            <button class="gh-burger"></button>
+            <button class="gh-burger" aria-label="Menu"></button>
         </div>
 
         <nav class="gh-head-menu">
@@ -179,12 +179,6 @@
     {{> "pswp"}}
 {{/is}}
 
-{{!-- Remove jquery --}}
-{{!-- <script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous">
-</script> --}}
 <script src="{{asset "built/main.min.js"}}"></script>
 
 {{!-- Theme script --}}
@@ -226,11 +220,11 @@ function changeTheme(theme) {
 
 function changePrismStyle(theme){
     var headPrism = document.getElementById("prism-theme");
-    if(headPrism && theme == "dark"){
-        headPrism.href = "https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-twilight.min.css";
-    } else{
-        headPrism.href = "https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-solarizedlight.min.css";
-    }
+        if(headPrism && theme == "dark"){
+            headPrism.href = "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-twilight.min.css";
+        } else{
+            headPrism.href = "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-solarizedlight.min.css";
+        }
 }
 
 function toggleThemeIcons(){
@@ -251,30 +245,6 @@ function toggleDarkThemeInBody(){
     element.classList.toggle("dark-mode");
 }
 </script>
-
-{{!-- <!-- Prism.js -->
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/toolbar/prism-toolbar.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-python.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-java.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-bash.min.js"></script>
-
-<!-- TOC-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.13.4/tocbot.min.js"></script>
-<script>
-    tocbot.init({
-        tocSelector: '.toc',
-        contentSelector: '.post-content',
-        headingSelector: 'h1, h2, h3',
-        hasInnerContainers: true,
-        headingsOffset: 100,
-        scrollSmoothOffset: -100,
-        scrollSmoothDuration: 420
-    });
-</script> --}}
 
 
 {{ghost_foot}}
