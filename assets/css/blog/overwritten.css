@@ -39,7 +39,6 @@ h6 {
 
 .gh-canvas > * {
     grid-column: wide-start/wide-end;
-    padding: 0 60px;
 }
 
 .gh-inner{
