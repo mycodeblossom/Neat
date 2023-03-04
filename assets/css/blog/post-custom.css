@@ -154,7 +154,7 @@
 }
 
 /* Strong code */
-p code{
+p code, :not(pre)>code{
     font-size: 14px;
     background-color: var(--code-background-color);
     border-radius: 3px;

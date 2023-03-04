@@ -12,7 +12,7 @@
             {{!-- View all button --}}
             {{#get "tags" filter="slug:{{title}}" limit="1" include="count.posts"}}
                 {{#foreach tags}}
-                    <a class="topic-more button-arrow button-arrow-right" id="{{title}}" href="{{url absolute="true"}}">View all ({{count.posts}}) →</a>
+                    <a class="topic-more sub-category-view-all" id="{{title}}" href="{{url absolute="true"}}">View all ({{count.posts}}) →</a>
                 {{/foreach}}
             {{/get}}
 
