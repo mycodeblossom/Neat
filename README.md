@@ -1,13 +1,66 @@
-# Ease
+# Neat
 
-A versatile [Ghost](https://github.com/TryGhost/Ghost) theme suitable for documentation. Publish your posts or business information with ease.
+## Description
+This is a fork of Ghost Ease theme with many new features (hierarchical model and dark mode). Its focus is clean and functional design and fully customizable structure. 
 
-**Demo: https://ease.ghost.io**
+The theme is compatible with the latest Ghost 5. For more details see the features section below.
 
-# Instructions
+![](https://raw.githubusercontent.com/mycodeblossom/resources/master/Neat/home_light_theme.png)
+![](https://raw.githubusercontent.com/mycodeblossom/resources/master/Neat/home_dark_theme.png)
 
-1. [Download this theme](https://github.com/TryGhost/Ease/archive/main.zip)
+## Neat is good for
+
+You can use the theme Neat for ghost for: 
+* tech blog
+* documentation
+* blogs which need hierarchical organization
+
+All features are developed and production ready
+
+## Demo
+Visit the demo sites:
+ * https://datascientyst.com/
+ * https://softhints.com/
+
+     
+## Features
+
+* Dark mode
+* Hierarchical structure for home page and left side navigation. For more information check hierarchical_structure.md.
+![](https://github.com/mycodeblossom/resources/blob/master/Neat/drop_down_menu.png?raw=true)
+* Featured posts flagged with custom icon 
+![](https://raw.githubusercontent.com/mycodeblossom/resources/master/Neat/featured_posts.png)
+* JQuery free :)
+* 3 column layout for posts:
+    * navigation for categories and sub-categories
+    * post content
+    * TOC generated using the heading of the post (2 levels managed)
+![](https://github.com/mycodeblossom/resources/blob/master/Neat/post.png?raw=true)
+* custom not found page (404)
+![](https://github.com/mycodeblossom/resources/blob/master/Neat/not_found_page.png?raw=true)
+* Code highlighting using prismJs
+* custom color palette to use in post (so it looks good in dark and light mode)
+* Generic Elements (check post_elements.md):
+    * info boxes
+    * tables
+    * collapsible
+    
+Check more in: How to configure Neat
+
+## Install Neat
+
+1. [Download this theme](https://github.com/mycodeblossom/Neat/archive/refs/heads/main.zip)
 2. Log into Ghost, and go to the `Design` settings area to upload the zip file
+
+## How to customize Neat
+
+ Please visit: How to configure Neat
+## Support
+
+If you have any questions or issues with the Neat theme, please refer to the theme repository for support or create an issue on the repository's issue tracker.
+Want to contribute?
+
+New features, ideas, suggestions and pull requests are welcome!
 
 # Development
 
@@ -29,10 +82,6 @@ The `zip` Gulp task packages the theme files into `dist/ease.zip`, which you can
 yarn zip
 ```
 
-# Contribution
-
-This repo is synced automatically with [TryGhost/Themes](https://github.com/TryGhost/Themes) monorepo. If you're looking to contribute or raise an issue, head over to the main repository [TryGhost/Themes](https://github.com/TryGhost/Themes) where our official themes are developed.
-
 # Copyright & License
 
-Copyright (c) 2013-2022 Ghost Foundation - Released under the [MIT license](LICENSE).
+Copyright (c) 2013-2023 Ghost Foundation - Released under the [MIT license](LICENSE).

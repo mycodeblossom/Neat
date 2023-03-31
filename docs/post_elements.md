@@ -1,0 +1,139 @@
+## Alerts
+
+<div class="alert-protip">
+  <span class="alert">&times;</span>
+  <strong>Pro Tip 1</strong><br>Method <strong>rename</strong> can take a function: <pre>df.rename(columns=lambda x: x.lstrip())</pre>
+</div>
+
+
+<div class="alert-warning">
+  <strong>Note:</strong>
+  <p>Note that method works on both axes - `axis=1` - means columns.</p>
+</div> 
+
+## Table
+
+<table border="1" class="dataframe table table-striped text-center">
+  <thead>
+    <tr style="text-align: center;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>PlqBxeS6rd</th>
+      <td>0.777225</td>
+      <td  style="background-color:#e0eb6a">NaN</td>
+      <td>2.474689</td>
+      <td>-0.636386</td>
+    </tr>
+    <tr>
+      <th>SwbHSSz1EM</th>
+      <td>-0.281544</td>
+      <td>-0.900471</td>
+      <td>-1.284081</td>
+      <td  style="background-color:#e0eb6a">NaN</td>
+    </tr>
+    <tr>
+      <th>d59w8ixnJO</th>
+      <td>1.205294</td>
+      <td>0.170578</td>
+      <td>-0.930505</td>
+      <td>-0.095696</td>
+    </tr>
+    <tr>
+      <th>D5stwhgvIN</th>
+      <td>0.037623</td>
+      <td>-1.088020</td>
+      <td>0.058592</td>
+      <td>0.371408</td>
+    </tr>
+    <tr>
+      <th>fdIzwVg1SY</th>
+      <td  style="background-color:#e0eb6a">NaN</td>
+      <td>-1.294436</td>
+      <td>1.019611</td>
+      <td>-1.128139</td>
+    </tr>
+  </tbody>
+</table>
+
+## Code
+
+
+```python
+import pandas as pd
+from pandas.util.testing import makeTimeSeries
+
+df = makeTimeSeries()
+df.head()
+```
+
+## result:
+
+    2000-01-03   -2.066624
+    2000-01-04   -0.897585
+    2000-01-05   -0.458669
+    2000-01-06    1.038565
+    2000-01-07   -0.058897
+    Freq: B, dtype: float64
+
+
+## Quote
+
+> It's possible to create a Series or DataFrame with time series data for tests. Both have index datetime and numeric values.
+
+
+## Link
+
+[https://datascientyst.com/how-to-create-a-dataframe-of-random-integers-with-pandas/](https://datascientyst.com/how-to-create-a-dataframe-of-random-integers-with-pandas/)
+
+## List
+* item1
+* item2
+
+## Headings
+## title 2
+### title 3
+#### title 4
+##### title 5
+
+## Image
+
+![](https://datascientyst.com/content/images/2021/12/create-easily-dummy-dataframe-test-data.png)
+
+## InfoBoxes 1
+
+<div class="alert-protip">
+  <span class="alert"></span>
+  <strong>Rules of thumb</strong><br>
+  <strong>1</strong>
+  <pre>2</pre>    
+   Always work with "timezone-aware" datetime objects.<br>
+   Always store datetime in UTC and leave rendering of timezones to the front-end.
+</div>
+
+## InfoBoxes 2
+
+<div class="alert-protip">
+  <span class="alert"></span>
+  <strong>Pro Tip 1</strong><br>Method <strong>rename</strong> can take a function: <pre>df.rename(columns=lambda x: x.lstrip())</pre>
+</div>
+
+## Colapsible
+
+<button class="collapsible-header">Open Collapsible</button>
+<div class="collapsible-body">
+<p><div><strong>rows</strong> - observations, records, trials</div>
+<div><strong>columns</strong> -  variable, feature</div></p>  
+</div>
+
+
+## Wrapped Image
+
+<p><img class="about" src="https://datascientyst.com/content/images/2022/06/panda_about.png" alt="Pineapple" style="width:170px;height:170px;margin-left:15px;float: right;">
+Wrap image around text. Wrap image around text.Wrap image around text.Wrap image around text.Wrap image around text.Wrap image around text.Wrap image around text.Wrap image around text.Wrap image around text.Wrap image around text.Wrap image around text.Wrap image around text.Wrap image around text.Wrap image around text.Wrap image around text.Wrap image around text.Wrap image around text.</p>
