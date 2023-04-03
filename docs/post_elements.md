@@ -10,54 +10,67 @@
   <strong>Note:</strong>
   <p>Note that method works on both axes - `axis=1` - means columns.</p>
 </div> 
+## Color palette
 
-## Table
+Several colors are defined in the theme as variables. They are divided in 2 groups: 
+### Text colors
+    --red-txt-color
+    --green-txt-color
+    --yellow-txt-color
+### Background colors
+    --red-bg-color
+    --green-bg-color
+    --yellow-bg-color
+    --light-blue-bg-color
+
+### Usage
+Use as the names imply - first group for text and the second for backgrounds. They are designed be readable in different combinations and change according to the theme mode (light/dark).
+Text:
+```
+style="color:var(--red-txt-color)"
+```
+Background:
+```
+style="background-color:var(--red-bg-color)"
+```
+
+
+See the striped table example below.
+## Striped Table
+For striped table use class="table-striped" in the table tag. As result the color of the rows of the table will alternate.
+If you want custom colors for the text or the background in the table, it's advisable to use the color palette from above so it looks good in both light and dark theme.
 
 <table border="1" class="dataframe table table-striped text-center">
   <thead>
     <tr style="text-align: center;">
       <th></th>
-      <th>A</th>
-      <th>B</th>
-      <th>C</th>
-      <th>D</th>
+      <th>Color</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>PlqBxeS6rd</th>
-      <td>0.777225</td>
-      <td  style="background-color:#e0eb6a">NaN</td>
-      <td>2.474689</td>
-      <td>-0.636386</td>
+      <th>0</th>
+      <td style="background-color:var(--red-bg-color)"> red-bg-color</td>
     </tr>
     <tr>
-      <th>SwbHSSz1EM</th>
-      <td>-0.281544</td>
-      <td>-0.900471</td>
-      <td>-1.284081</td>
-      <td  style="background-color:#e0eb6a">NaN</td>
+      <th>1</th>
+      <td style="background-color:var(--green-bg-color)"> green-bg-color</td>
     </tr>
     <tr>
-      <th>d59w8ixnJO</th>
-      <td>1.205294</td>
-      <td>0.170578</td>
-      <td>-0.930505</td>
-      <td>-0.095696</td>
+      <th>2</th>
+      <td style="background-color:var(--yellow-bg-color)"> yellow-bg-color</td>
     </tr>
     <tr>
-      <th>D5stwhgvIN</th>
-      <td>0.037623</td>
-      <td>-1.088020</td>
-      <td>0.058592</td>
-      <td>0.371408</td>
+      <th>0</th>
+      <td style="color:var(--red-txt-color)"> red-txt-color</td>
     </tr>
     <tr>
-      <th>fdIzwVg1SY</th>
-      <td  style="background-color:#e0eb6a">NaN</td>
-      <td>-1.294436</td>
-      <td>1.019611</td>
-      <td>-1.128139</td>
+      <th>1</th>
+      <td style="color:var(--green-txt-color)"> green-txt-color</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td style="color:var(--yellow-txt-color)"> yellow-txt-color</td>
     </tr>
   </tbody>
 </table>
