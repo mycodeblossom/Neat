@@ -8,7 +8,7 @@
     margin-left: auto;
     margin-right: auto;
  }
- @media (max-width: 900px) {
+ @media (max-width: 1600px) {
     #side-navigation{
         display: none;
     }
@@ -18,7 +18,7 @@
     }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1600px) {
     #side-navigation{
         display: block;
     }

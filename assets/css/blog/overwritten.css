@@ -37,8 +37,10 @@ h6 {
     [full-end];
 } */
 
-.gh-canvas > * {
-    grid-column: wide-start/wide-end;
+@media (min-width: 1100px) {
+    .gh-canvas > * {
+        grid-column: wide-start/wide-end;
+    }
 }
 
 .gh-inner{
