@@ -35,6 +35,15 @@
 
     --container-max-width: calc(83% + 8vw);
     --color-secondary-text: hsl(0,0%,30%);
+
+    /* Color pallette */
+    --red-bg-color:#fab194;
+    --green-bg-color:#dbeabbff;
+    --yellow-bg-color: #fafad0;
+    --light-blue-bg-color: #eef9f9ff;
+    --red-txt-color: #B22222;
+    --green-txt-color:#006400;
+    --yellow-txt-color: #8b6704;
 }
 
 .dark-mode{
