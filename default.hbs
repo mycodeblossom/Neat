@@ -24,99 +24,111 @@
 <div class="site">
 
     <header id="gh-head" class="gh-head gh-outer">
-    <div class="gh-head-inner gh-inner">
-        <div class="gh-head-brand">
-            {{!-- Brand logo --}}
-            <div class="gh-head-brand-wrapper">
-                <a class="gh-head-logo" href="{{@site.url}}">
-                    {{#if @site.logo}}
-                        <img src="{{@site.logo}}" alt="{{@site.title}}">
-                    {{else}}
-                        {{@site.title}}
-                    {{/if}}
-                </a>
-            </div>
-            {{!-- Search button mobile--}}
-            <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
-            {{!-- Theme icons mobile--}}
-            <button class="gh-icon-btn theme-icon" id="dark-theme-icon-mobile" onclick="changeTheme('dark')" aria-label="Change to dark theme">
-                <img class="logo-image" src="{{asset 'assets/icons/moon.svg'}}" alt="Dark theme" height="35px" width="35px">
-            </button>
-            <button class="gh-icon-btn theme-icon hidden" id="light-theme-icon-mobile" onclick="changeTheme('light')" aria-label="Change to light theme">
-                <img class="logo-image" src="{{asset 'assets/icons/sun.svg'}}" alt="Light theme" height="35px" width="35px">
-            </button>
-            {{!-- Menu button mobile --}}
-            <button class="gh-burger" aria-label="Menu"></button>
-        </div>
-
-        <nav class="gh-head-menu">
-            {{navigation}}
-            {{#unless @site.members_enabled}}
-                {{#match @custom.navigation_layout "Stacked"}}
-                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
-                {{/match}}
-            {{/unless}}
-
-            {{!-- Custom navigation --}}
-            {{#get "posts"  order="title desc" filter="featured:true + tag:hash-subcategory" include="tags" as |subcategory|}} 
-                {{#foreach subcategory}}
-                <div class="dropdown">
-                    {{!-- Featured sub-category to be shown in the menu navigation --}}
-                    <div class="dropbtn">
-                        {{#if feature_image}}
-                            <img src="{{feature_image}}" alt="{{content}}" height="40px" width="40px">
-                            <a class="menu-item-with-img" href="{{url absolute="true"}}">{{content}}</a>
+        <div class="gh-head-inner gh-inner">
+            <div class="gh-head-brand">
+                {{!-- Brand logo --}}
+                <div class="gh-head-brand-wrapper">
+                    <a class="gh-head-logo" href="{{@site.url}}">
+                        {{#if @site.logo}}
+                            <img src="{{@site.logo}}" alt="{{@site.title}}">
                         {{else}}
-                            <a class="" href="{{url absolute="true"}}">{{content}}</a>
+                            {{@site.title}}
                         {{/if}}
-
-                    </div>
-
-
-                    {{!-- List posts for the featured sub-category --}}
-                    <div class="dropdown-content">
-                        {{#get "posts" order="published_at asc" filter="tag:{{title}}" include="tags" as |article|}}
-                            {{#foreach article}}
-                                <a class="topic-article-link" href="{{url}}">
-                                        {{title}}                            
-                                </a>
-                            {{/foreach}}
-                        {{/get}}
-                    </div>
+                    </a>
                 </div>
-
-                {{/foreach}}
-            {{/get}}
-        </nav>
-
-        <div class="gh-head-actions">
-            {{#unless @site.members_enabled}}
-                {{^match @custom.navigation_layout "Stacked"}}
-                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
-                {{/match}}
-            {{else}}
+                {{!-- Search button mobile--}}
                 <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
-                {{!-- <div class="gh-head-members">
-                    {{#unless @member}}
-                        {{#unless @site.members_invite_only}}
-                            <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
-                            <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                {{!-- Theme icons mobile--}}
+                <button class="gh-icon-btn theme-icon" id="dark-theme-icon-mobile" onclick="changeTheme('dark')" aria-label="Change to dark theme">
+                    <img class="logo-image" src="{{asset 'assets/icons/moon.svg'}}" alt="Dark theme" height="35px" width="35px">
+                </button>
+                <button class="gh-icon-btn theme-icon hidden" id="light-theme-icon-mobile" onclick="changeTheme('light')" aria-label="Change to light theme">
+                    <img class="logo-image" src="{{asset 'assets/icons/sun.svg'}}" alt="Light theme" height="35px" width="35px">
+                </button>
+                {{!-- Saved mobile--}}
+                <button class="gh-icon-btn theme-icon" id="saved-icon-mobile" onclick="showSaved()" aria-label="Show saved posts">
+                    <img class="logo-image" src="{{asset 'assets/icons/heart.svg'}}" alt="Saved posts" height="35px" width="35px">
+                </button>
+                {{!-- Menu button mobile --}}
+                <button class="gh-burger" aria-label="Menu"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                {{navigation}}
+                {{#unless @site.members_enabled}}
+                    {{#match @custom.navigation_layout "Stacked"}}
+                        <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
+                    {{/match}}
+                {{/unless}}
+
+                {{!-- Custom navigation --}}
+                {{#get "posts"  order="title desc" filter="featured:true + tag:hash-subcategory" include="tags" as |subcategory|}} 
+                    {{#foreach subcategory}}
+                    <div class="dropdown">
+                        {{!-- Featured sub-category to be shown in the menu navigation --}}
+                        <div class="dropbtn">
+                            {{#if feature_image}}
+                                <img src="{{feature_image}}" alt="{{content}}" height="40px" width="40px">
+                                <a class="menu-item-with-img" href="{{url absolute="true"}}">{{content}}</a>
+                            {{else}}
+                                <a class="" href="{{url absolute="true"}}">{{content}}</a>
+                            {{/if}}
+
+                        </div>
+
+
+                        {{!-- List posts for the featured sub-category --}}
+                        <div class="dropdown-content">
+                            {{#get "posts" order="published_at asc" filter="tag:{{title}}" include="tags" as |article|}}
+                                {{#foreach article}}
+                                    <a class="topic-article-link" href="{{url}}">
+                                            {{title}}                            
+                                    </a>
+                                {{/foreach}}
+                            {{/get}}
+                        </div>
+                    </div>
+
+                    {{/foreach}}
+                {{/get}}
+            </nav>
+
+            <div class="gh-head-actions">
+                {{#unless @site.members_enabled}}
+                    {{^match @custom.navigation_layout "Stacked"}}
+                        <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
+                    {{/match}}
+                {{else}}
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
+                    {{!-- <div class="gh-head-members">
+                        {{#unless @member}}
+                            {{#unless @site.members_invite_only}}
+                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                            {{else}}
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signin" data-portal="signin">Sign in</a>
+                            {{/unless}}
                         {{else}}
-                            <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signin" data-portal="signin">Sign in</a>
+                            <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/account" data-portal="account">Account</a>
                         {{/unless}}
-                    {{else}}
-                        <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/account" data-portal="account">Account</a>
-                    {{/unless}}
-                </div> --}}
-            {{/unless}}
-            {{!-- Theme icons --}}
-            <button class="gh-icon-btn theme-icon" id="dark-theme-icon" onclick="changeTheme('dark')" aria-label="Change to dark theme">
-                <img class="logo-image" src="{{asset 'assets/icons/moon.svg'}}" alt="Dark theme" height="35px" width="35px">
-            </button>
-            <button class="gh-icon-btn theme-icon hidden" id="light-theme-icon" onclick="changeTheme('light')" aria-label="Change to light theme">
-                <img class="logo-image" src="{{asset 'assets/icons/sun.svg'}}" alt="Light theme" height="35px" width="35px">
-            </button>
+                    </div> --}}
+                {{/unless}}
+                {{!-- Theme icons --}}
+                <button class="gh-icon-btn theme-icon" id="dark-theme-icon" onclick="changeTheme('dark')" aria-label="Change to dark theme">
+                    <img class="logo-image" src="{{asset 'assets/icons/moon.svg'}}" alt="Dark theme" height="35px" width="35px">
+                </button>
+                <button class="gh-icon-btn theme-icon hidden" id="light-theme-icon" onclick="changeTheme('light')" aria-label="Change to light theme">
+                    <img class="logo-image" src="{{asset 'assets/icons/sun.svg'}}" alt="Light theme" height="35px" width="35px">
+                </button>
+                {{!-- Saved --}}
+                <button class="gh-icon-btn theme-icon" id="saved-icon" onclick="showSaved()" aria-label="Show saved posts">
+                    <img class="logo-image" src="{{asset 'assets/icons/heart.svg'}}" alt="Saved posts" height="35px" width="35px">
+                </button>
+            </div>
         </div>
+    </header>
+    <div id="overlay">
+        <div id="overlay-content"></div>
     </div>
 </header>
 
@@ -243,6 +255,41 @@ function toggleDarkThemeInBody(){
     var element = document.body;
     element.classList.toggle("dark-mode");
 }
+</script>
+<script>
+    function showSaved(){
+        const saved = JSON.parse(localStorage.getItem("favoritesLst"));
+        const overlay = document.getElementById("overlay");
+        const overlayContent = document.getElementById("overlay-content");
+        overlayContent.innerHTML = ""; // clear old list with results
+        if(saved && saved.length > 0){
+            // List with saved posts
+            const ul = document.createElement('ul');
+            overlayContent.appendChild(ul);
+            saved.forEach(post=>{
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                const linkText = document.createTextNode(post.title);
+                a.appendChild(linkText);
+                a.href = post.url;
+                li.appendChild(a);
+                ul.appendChild(li);
+            })
+        } else{
+            // No saved posts
+            const noData = document.createElement('span');
+            noData.textContent = 'No data';
+            overlayContent.appendChild(noData);
+        }
+
+        overlay.style.display = "block"
+        // clear overlay on click
+        overlay.addEventListener(
+        "click",
+        function(event) {
+            overlay.style.display="none"}
+        )
+    }
 </script>
 
 

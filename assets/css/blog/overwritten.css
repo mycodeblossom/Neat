@@ -111,7 +111,7 @@ h6 {
     }
 
     #gh-head .gh-head-brand{
-        grid-template-columns: 1fr auto auto auto;
+        grid-template-columns: 1fr auto auto auto auto;
     }
 
     #gh-head .dropbtn a{

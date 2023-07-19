@@ -32,6 +32,18 @@
                         {{/if}}
                     {{/if}}
                 {{/if}}
+
+                {{!-- Save as favorite --}}
+                <button class="gh-icon-btn" id="save-icon" data-title="{{title}}" data-url="{{url}}" 
+                    onclick="savePost()" aria-label="Save post as favorite">
+                    <img class="" src="{{asset 'assets/icons/heart.svg'}}" alt="Save" height="35px" width="35px">
+                </button>
+                {{!-- Remove from saved button --}}
+                <button class="gh-icon-btn" id="remove-save-icon" data-title="{{title}}" data-url="{{url}}" 
+                    {{!-- style="display: none;" --}}
+                    onclick="removePost()" aria-label="Remove post as favorite">
+                    <img class="" src="{{asset 'assets/icons/heart_full.svg'}}" alt="Save" height="35px" width="35px">
+                </button>
             </h1>
 
             <div class="post-meta">
@@ -98,22 +110,71 @@
     </aside>
 </main>
 
+<script>
+    const localStorageId = "favoritesLst";
+    const addIcon = document.getElementById("save-icon");
+    const removeIcon = document.getElementById("remove-save-icon")
+    chooseSaveIcon();
+
+    function chooseSaveIcon(){
+        const saved = getSavedList();
+        const url = addIcon.getAttribute('data-url');
+        const alreadyAdded = saved.find(el => el.url == url);
+        if(alreadyAdded){
+            addIcon.style.display = "none";
+            removeIcon.style.display = "block"
+        } else{
+            addIcon.style.display = "block";
+            removeIcon.style.display = "none"
+        }
+    }
+    function getSavedList(){
+        let saved = localStorage.getItem(localStorageId);
+        if(!saved){
+            saved = [];
+        } else{
+            saved = JSON.parse(saved);
+        }
+        return saved;
+    }
+    function getSaveObj(){
+        const button = document.getElementById('save-icon');
+        const title = button.getAttribute('data-title');
+        const url = button.getAttribute('data-url');
+        const result = {title,url};
+        return result;
+    }
+    function savePost(){      
+        const saved = getSavedList();
+        const saveObj = getSaveObj();
+        saved.push(saveObj);
+        localStorage.setItem(localStorageId, JSON.stringify(saved));
+        chooseSaveIcon(); // refresh hear icon
+    }
+    function removePost(){
+        const url = addIcon.getAttribute('data-url');
+        const saved = getSavedList();
+        const filtered = saved.filter(el=> el.url != url);
+        localStorage.setItem(localStorageId, JSON.stringify(filtered));
+        chooseSaveIcon(); // refresh heart icon
+    }
+</script>
 
 <script>
-var coll = document.getElementsByClassName("collapsible-header");
-var i;
+    var coll = document.getElementsByClassName("collapsible-header");
+    var i;
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    } 
-  });
-}
+    for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+        content.style.maxHeight = null;
+        } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        } 
+    });
+    }
 </script>
 
 
