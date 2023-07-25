@@ -6,11 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{meta_title}}</title>
     {{#post}}<meta name="description" content="{{excerpt}}" />{{/post}}
-    <link rel="stylesheet" href="{{asset "built/screen.css"}}">
-
-    {{ghost_head}}
-
-    <!-- Prism.js -->
+    
+    <!-- PrismJS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css" integrity="sha512-Dqf5696xtofgH089BgZJo2lSWTvev4GFo+gA2o4GullFY65rzQVQLQVlzLvYwTo0Bb2Gpb6IqwxYWtoMonfdhQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
      <!-- themes:  https://cdnjs.com/libraries/prism -->   
@@ -18,6 +15,11 @@
 
     <!-- TOC -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.20.1/tocbot.min.css" integrity="sha512-a/fdL49R0f7ZkWXAaVeKvAoIQYcc90fqoAv0aZnfSDD5onvu8Z1QEiiulgDlNVp2x1B9H+WkxtsGLeZkk1gYGw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    {{!-- Theme styling --}}
+    <link rel="stylesheet" href="{{asset "built/screen.css"}}">
+
+    {{ghost_head}}
 </head>
 
 <body class="{{body_class}}{{block "body_class"}}  is-head-{{#match @custom.navigation_layout "Logo on the left"}}left-logo{{else match @custom.navigation_layout "Logo in the middle"}}middle-logo{{else}}stacked{{/match}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Elegant serif"}} has-serif-body{{/match}}">

@@ -234,3 +234,8 @@ pre {
     background: none;
     margin-top: 0px;
   }
+
+  /* PrismJS =  */
+  .token.operator {
+    background: none;
+}
